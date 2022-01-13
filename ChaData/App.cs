@@ -10,8 +10,32 @@ namespace ChaData
 {
     class App
     {
+        GameInfo gameInfo;
+        private const string GAME_INFO_PATH = "./game_info.json";
         public App()
         {
+
+            if (File.Exists(GAME_INFO_PATH))
+            {
+                Console.WriteLine("기존 유저");
+                string json = File.ReadAllText(GAME_INFO_PATH);
+                Console.WriteLine(json);
+
+                this.gameInfo = JsonConvert.DeserializeObject<GameInfo>(json);
+            }
+            else
+            {
+                Console.WriteLine("신규 유저");
+                this.gameInfo = new GameInfo();
+                var chainfo = new ChaInfo(1);
+
+                string json = JsonConvert.SerializeObject(this.gameInfo);
+                Console.WriteLine(json);
+                File.WriteAllText(GAME_INFO_PATH,json);
+            }
+            
+
+            /*
             //Console.WriteLine("test");
 
             string data = File.ReadAllText("./ChaList.json");
@@ -40,6 +64,7 @@ namespace ChaData
                
                // Console.WriteLine(kv.Value.height);
             }
+            */
             
         }
     }

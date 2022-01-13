@@ -48,7 +48,11 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="ChaData.cs" />
+    <Compile Include="ChaInfo.cs" />
+    <Compile Include="DataManager.cs" />
+    <Compile Include="GameInfo.cs" />
     <Compile Include="MyEnum.cs" />
+    <Compile Include="MyHouse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
